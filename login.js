@@ -6,17 +6,41 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 function loginUser() {
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
+    const loginMessage = document.getElementById('loginMessage');
 
+    // Basic email validation
+    if (!validateEmail(email)) {
+        loginMessage.textContent = 'Invalid email format.';
+        loginMessage.style.color = 'red';
+        return;
+    }
+
+    // Ensure both fields are filled out
+    if (email === '' || password === '') {
+        loginMessage.textContent = 'Both fields are required.';
+        loginMessage.style.color = 'red';
+        return;
+    }
+
+    // Check if user exists and password matches
     const storedUser = localStorage.getItem(email);
     if (storedUser) {
         const userData = JSON.parse(storedUser);
         if (userData.password === password) {
-            document.getElementById('loginMessage').textContent = 'Login successful!';
-            document.getElementById('loginMessage').style.color = 'green';
+            loginMessage.textContent = 'Login successful!';
+            loginMessage.style.color = 'green';
         } else {
-            document.getElementById('loginMessage').textContent = 'Incorrect password.';
+            loginMessage.textContent = 'Incorrect password.';
+            loginMessage.style.color = 'red';
         }
     } else {
-        document.getElementById('loginMessage').textContent = 'User not found.';
+        loginMessage.textContent = 'User not found.';
+        loginMessage.style.color = 'red';
     }
+}
+
+function validateEmail(email) {
+    
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
 }

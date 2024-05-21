@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Register - Amazon</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="register-container">
         <div class="register-logo">
-            <a href="index.html"><img src="" alt=" Logo"></a>
+            <a href="index.html"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo"></a>
         </div>
         <div class="register-box">
             <h1>Create account</h1>
-            <form id="registrationForm">
+            <form id="registrationForm" onsubmit="return validateForm(event)">
                 <label for="fName">First Name</label>
                 <input type="text" id="fName" name="fName" required>
                 
@@ -25,8 +25,11 @@
                 
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
                 
-                <button type="submit" class="register-button">Create your account</button>
+                <button type="submit" class="register-button">Create your Amazon account</button>
             </form>
             <p id="regMessage"></p>
             <p class="sign-in">
