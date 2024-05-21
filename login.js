@@ -15,14 +15,14 @@ function loginUser() {
         return;
     }
 
-    // Ensure both fields are filled out
+   
     if (email === '' || password === '') {
         loginMessage.textContent = 'Both fields are required.';
         loginMessage.style.color = 'red';
         return;
     }
 
-    // Check if user exists and password matches
+    
     const storedUser = localStorage.getItem(email);
     if (storedUser) {
         const userData = JSON.parse(storedUser);

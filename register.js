@@ -11,7 +11,7 @@ function saveData() {
     let confirmPassword = document.getElementById("confirmPassword").value;
     let regMessage = document.getElementById('regMessage');
 
-    // Validation
+    
     if (!validateEmail(email)) {
         regMessage.textContent = 'Invalid email format.';
         regMessage.style.color = 'red';
